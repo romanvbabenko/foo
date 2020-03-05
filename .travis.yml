@@ -1,0 +1,18 @@
+language: sh
+# dist: xenial
+services:
+  - docker
+env:
+  - DOCKER_COMPOSE_VERSION=1.25.1
+  - JQ_VERSION=1.6
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - curl -L https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64 > jq
+  - chmod +x jq
+  - sudo mv jq /usr/local/bin
+
+script:
+  
