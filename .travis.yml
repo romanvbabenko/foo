@@ -15,4 +15,8 @@ before_install:
   - sudo mv jq /usr/local/bin
 
 script:
-  
+  - >
+    curl -s https://jsonplaceholder.typicode.com/todos/1  | jq '.id'
+    | grep '1'
+    && (echo "HTTP test: PASS" && exit 0)
+    || (echo 'HTTP test: FAIL' && exit 1)
