@@ -1,5 +1,5 @@
+dist: xenial
 language: sh
-# dist: xenial
 services:
   - docker
 env:
